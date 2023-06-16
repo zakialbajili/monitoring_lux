@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 Route::get('/pasien/tampildata', 'App\Http\Controllers\DataController@tampildata');
 Route::get('/pasien/tampilsuhu', 'App\Http\Controllers\DataController@tampilsuhu');
+Route::get('/pasien/tampilgrafik', 'App\Http\Controllers\DataController@tampilgrafik');
 Route::get('/inputdata/{suhu}/{kelembaban}', 'App\Http\Controllers\DataController@inputdata');

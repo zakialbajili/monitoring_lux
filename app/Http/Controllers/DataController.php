@@ -25,6 +25,11 @@ class DataController extends Controller
 
         return redirect('pasien/tampilsuhu');
     }
+    public function tampilgrafik()
+    {
+        $datasuhu = Iot::orderBy('id','asc')->get();
+        return view('pasien.tampilgrafik', compact('datasuhu'));
+    }
 
 
 }
