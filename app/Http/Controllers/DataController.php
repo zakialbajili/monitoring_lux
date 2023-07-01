@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\DataController;
 use Illuminate\Http\Request;
 use App\Models\Iot;
+
 use DB;
 
 class DataController extends Controller
 {
+    public function cek(){
+        return view('cek');
+    }
     public function tampildata(){
         return view('pasien.tampildata');
+    }
+    public function tampilcek(){
+        return view('pasien.cek');
     }
     public function tampilsuhu()
     {
@@ -19,10 +26,9 @@ class DataController extends Controller
     public function inputdata(Request $request)
     {
         $data = array();
-        $data['suhu'] = $request->suhu;
-        $data['kelembaban'] = $request->kelembaban;
-        $data = DB::table('iots')->insert($data);
-
+        $data['lux'] = $request->lux;
+        $data['status'] = $request->status;
+        $data = DB::table('sensor')->insert($data);
         return redirect('pasien/tampilsuhu');
     }
     public function tampilgrafik()
