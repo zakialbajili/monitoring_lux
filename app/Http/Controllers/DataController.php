@@ -34,7 +34,7 @@ class DataController extends Controller
     public function tampilgrafik()
     {
         $datasuhu = Iot::orderBy('id','asc')->get();
-        return view('pasien.tampilgrafik', compact('datasuhu'));
+        return view('pasien/tampilgrafik', compact('datasuhu'));
     }
 
 

@@ -1,19 +1,43 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>IOT Krakatau Steel</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready( function(){
+           setInterval( function(){
+                $("#sensor").load("{{ url('/admin/tampildata') }}");
+            //    $("#grafik").load("{{ url('/admin/tampilgrafik') }}");
+                $("#grafik2").load("{{ url('/admin/cobagrafik') }}");
+           }, 1000);
+        });
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
+    <script type="text/javascript" src="grafik/jquery-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
+    <link rel="stylesheet" href="/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> 
+
+
+    <link rel="apple-touch-icon" href="{{asset('apple-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('style/icon.ico')}}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('style/assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('style/assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('style/assets/css/font-awesome.min.css')}}">
@@ -30,13 +54,9 @@
 
 </head>
 <body>
-
-
-        <!-- Left Panel -->
-
+    <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
-
             <div class="navbar-header">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
@@ -48,24 +68,19 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="{{url('/admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
-
     <!-- Left Panel -->
 
     <!-- Right Panel -->
-
     <div id="right-panel" class="right-panel">
-
         <!-- Header-->
         <header id="header" class="header">
-
             <div class="header-menu">
-
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
@@ -76,7 +91,6 @@
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
-
                         <div class="dropdown for-notification">
                           <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-bell"></i>
@@ -98,7 +112,6 @@
                             </a>
                           </div>
                         </div>
-
                         <div class="dropdown for-message">
                           <button class="btn btn-secondary dropdown-toggle" type="button"
                                 id="message"
@@ -144,7 +157,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -159,10 +171,8 @@
                     </div>
                 </div>
             </div>
-
         </header><!-- /header -->
         <!-- Header-->
-
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -182,71 +192,29 @@
             </div>
         </div>
 
+        <!--content-->
         <div class="content mt-3">
             <!--/.col-->
             <div class="col-sm-12 col-lg-12">
-            <div class="card text-center">
-                <div class="card-header">Monitoring Intesitas Cahaya</div>
+                <div class="container" id="sensor"></div>
+            </div>
+            <div class="col-sm-12 col-lg-12">
+                <div class="card text-center">
+                    <div class="card-title"></div>
                     <div class="card-body">
-                        <h5 class="card-title">Nilai Intesintas Cahaya (Lux)</h5>
-                        <div class="mt-6 ">
-                            <div class="container">
-                                <table class="mt-6 table table-striped table-hover table-bordered p-2 mb-2 "  style="text-align:center">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Intensitas Cahaya</th>
-                                        <th>Status</th>
-                                        <th>Tanggal</th>
-                                    </tr>
-                                    @foreach($data as $dt)
-                                    <tr class="mt-6">
-                                        <td class="mt-6">{{$dt->id}}</td>
-                                        <td class="mt-6">{{$dt->lux}}</td>
-                                        <td class="mt-6">{{$dt->status}}</td>
-                                        <td class="mt-6">{{$dt->created_at}}</td>
-                                    </tr>
-                                    @endforeach
-                                </table>
-                            </div>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    <div class="card-footer text-body-secondary">Copyright(c)2023</div>
+                        <div class="container" id="grafik2" style="width:100%; text-align:center"></div>    
+                    </div>
                 </div>
             </div>
+            
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
 
-    <!-- Right Panel -->
-    <script src="{{asset('bootstrap/js/bootstrap.min.js.map')}}"></script>
+    <!-- Right Panel -->\
     <script src="{{asset('style/assets/js/vendor/jquery-2.1.4.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="{{asset('style/assets/js/plugins.js')}}"></script>
     <script src="{{asset('style/assets/js/main.js')}}"></script>
-    <script src="{{asset('style/assets/js/lib/chart-js/Chart.bundle.js')}}"></script>
     <script src="{{asset('style/assets/js/dashboard.js')}}"></script>
-    <script src="{{asset('style/assets/js/widgets.js')}}"></script>
-    <script src="{{asset('style/assets/js/lib/vector-map/jquery.vmap.js')}}"></script>
-    <script src="{{asset('style/assets/js/lib/vector-map/jquery.vmap.min.js')}}"></script>
-    <script src="{{asset('style/assets/js/lib/vector-map/jquery.vmap.sampledata.js')}}"></script>
-    <script src="{{asset('style/assets/js/lib/vector-map/country/jquery.vmap.world.js')}}"></script>
-    <script>
-        ( function ( $ ) {
-            "use strict";
-
-            jQuery( '#vmap' ).vectorMap( {
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: [ '#1de9b6', '#03a9f5' ],
-                normalizeFunction: 'polynomial'
-            } );
-        } )( jQuery );
-    </script>
-
 </body>
 </html>
